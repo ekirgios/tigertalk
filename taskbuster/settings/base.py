@@ -24,7 +24,7 @@ def get_env_variable(var_name):
         error_msg = "Set the %s environment variable" % var_name
         raise ImproperlyConfigured(error_msg)
  
-SECRET_KEY = get_env_variable('SECRET_KEY')
+SECRET_KEY = "48t65i#v=hx=)x*26s2#%68#gr#ocwbpc*+vzp!a%x%d46cq2&"
 
 
 # Quick-start development settings - unsuitable for production
