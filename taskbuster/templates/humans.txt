@@ -1,0 +1,16 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    TigerTalk Team: Alana, Erika, Sofi, Yotam
+
+# THANKS
+
+    To the BK & our lovely TA Christopher Moretti
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3
+    Django
+    jQuery, Modernizr
