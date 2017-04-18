@@ -5,7 +5,7 @@ from django.utils.translation import ugettext_lazy as _
  
 from . import managers
 
-
+# User model
 class User(models.Model):
     # Relations
     # Attributes - Mandatory
@@ -26,10 +26,10 @@ class User(models.Model):
         verbose_name_plural = "Users"
 
 
-# Create your models here.
+# Question model
 class Question(models.Model):
     # Relations
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(User, related_name='questions')
     # Attributes - Mandatory
     text = models.TextField()
     created_at = models.DateTimeField()
@@ -56,11 +56,11 @@ class Question(models.Model):
         return self.text
 
 
-# Create your models here.
+# Answer model
 class Answer(models.Model):
     # Relations
-    user = models.ForeignKey(User)
-    question = models.ForeignKey(Question)
+    user = models.ForeignKey(User, related_name='answers')
+    question = models.ForeignKey(Question, related_name='answers')
     # Attributes - Mandatory
     text = models.TextField()
     created_at = models.DateTimeField()
@@ -91,7 +91,28 @@ class Answer(models.Model):
         
     def __str__(self):
         return self.text
-        
-        
-        
 
+# Tag model
+class Tag(models.Model):
+    # Relations
+    questions = models.ManyToManyField(Question, related_name = 'tags') # might want to change this for symmetry
+    
+    # Attributes - Mandatory
+    text = models.CharField(max_length = 30)
+
+    # Attributes - Optional
+    # Object Manager
+    objects = managers.TagManager()
+    # Custom Properties      
+    @property
+    def get_questions(self):
+        return self.questions  
+    # Methods
+    # Meta and String
+    class Meta:
+        verbose_name = "Tag"
+        verbose_name_plural = "Tags"
+        ordering = ("text",)
+        
+    def __str__(self):
+        return self.text

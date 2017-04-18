@@ -57,7 +57,7 @@ class Question(models.Model):
 
 
 # Create your models here.
-class Answers(models.Model):
+class Answer(models.Model):
     # Relations
     user = models.ForeignKey(User)
     question = models.ForeignKey(Question)

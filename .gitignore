@@ -3,3 +3,7 @@ __pycache__
 myenv
 *.pyc
 taskbuster/ignore_directory
+/bin
+/include
+/lib
+/share

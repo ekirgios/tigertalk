@@ -10,3 +10,6 @@ class QuestionManager(models.Manager):
 
 class AnswerManager(models.Manager):
     pass
+
+class TagManager(models.Manager):
+    pass

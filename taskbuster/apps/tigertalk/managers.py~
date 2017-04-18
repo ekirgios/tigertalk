@@ -8,5 +8,5 @@ class UserManager(models.Manager):
 class QuestionManager(models.Manager):
     pass
 
-class AnswerManage(models.Manager):
+class AnswerManager(models.Manager):
     pass
